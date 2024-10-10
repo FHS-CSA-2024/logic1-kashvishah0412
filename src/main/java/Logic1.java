@@ -84,7 +84,12 @@ public class Logic1
 	old35(10) --> true
 	old35(15) --> false */
 	public boolean old35(int n) {
-		return (n%3 == 0) ^ (n%5 == 0);
+	if ((n%3 == 0) ^ (n%5 == 0)){
+	    return true;
+	   }
+	else {
+  		return false;
+	}
 	
 	}
 
@@ -97,7 +102,12 @@ public class Logic1
 	specialEleven(23) --> true
 	specialEleven(24) --> false */
 	public boolean specialEleven(int n) {
-	  return (n%11 == 0) || (n%11 == 1);
+	  if ((n%11 == 0) || (n%11 == 1)) {
+		  return true;
+	  }
+	else {
+		return false;
+	}
 	}
 
 
@@ -107,7 +117,12 @@ public class Logic1
 	more20(21) --> true
 	more20(42) --> true */
 	public boolean more20(int n) {
-		return (n%20 == 1) || (n%20 == 2);
+		if ((n%20 == 1) || (n%20 == 2)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	  
 	}
 
@@ -120,7 +135,12 @@ public class Logic1
 	less20(59) --> true
 	less20(20) --> false */
 	public boolean less20(int n) {
-		return (n%20 == 18) || (n%20 == 19);
+	if ((n%20 == 18) || (n%20 == 19)) {
+		return true;
+	}
+	else {
+		return false;
+	}
 	  
 	}
 
@@ -132,7 +152,12 @@ public class Logic1
 	nearTen(17) --> false
 	nearTen(19) --> true */
 	public boolean nearTen(int num) {
-	  return (n%10 <= 2) || (n%10 >= 8);
+	  if((n%10 <= 2) || (n%10 >= 8)) {
+		  return true;
+	  }
+	else {
+		  return false;
+	  }
 	}
 
 
@@ -145,7 +170,12 @@ public class Logic1
 	sortaSum(9, 4) --> 20
 	sortaSum(10, 11) --> 21*/
 	public int sortaSum(int a, int b) {
-	  return (sum >= 10 && sum <= 19) ? 20 : sum;
+	if (sum >= 10 && sum <= 19) {
+		return 20;
+	}
+	else {
+	return sum;
+	}
 	}
 
 
@@ -158,12 +188,15 @@ public class Logic1
 	in1To10(11, false) --> false
 	in1To10(11, true) --> true */
 	public boolean in1To10(int n, boolean outsideMode) {
-	  if (outsideMode) {
-		  return n<= 1 || n>= 10;
+	  if ((outsideMode==true && n<=1) || (outsideMode==true && n>=10)) {
+		  return true;
 	}
-	  else {
-		  return n>= 1 && n<= 10;
+	  else if (n>=1 && n<=10) {
+			 return true;
 		}
+	else {
+		return false;
+	}
 	}
 
 
@@ -178,7 +211,9 @@ public class Logic1
 	  if (( a>=13 && a<= 19) || (b>=13 && b<=19)) {
 		  return 19;
 	}
-	   return a+b;
+	  else {
+		return a+b;
+	  }
 	}
 
 
@@ -191,7 +226,12 @@ public class Logic1
 	love6(4, 5) --> false
 	love6(1, 5) --> true */
 	public boolean love6(int a, int b) {
-	  return a==6 || b==6 || a+b==6 || Math.abs(a-b)==6;
+		if (a==6 || b==6 || a+b==6 || Math.abs(a-b)==6) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 
@@ -204,7 +244,12 @@ public class Logic1
 	lastDigit(23, 19, 12) --> false
 	lastDigit(23, 19, 3) --> true */
 	public boolean lastDigit(int a, int b, int c) {
-	  return (a%10==b%10) || (b%10==c%10) || (a%10==c&%10);
+	  if ((a%10==b%10) || (b%10==c%10) || (a%10==c&%10)) {
+		  return true;
+	  }
+	else {
+		return false;
+	}
 	}
 
 
@@ -217,12 +262,18 @@ public class Logic1
 	answerCell(false, false, true) --> false
 	answerCell(true, false, false) --> false */
 	public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-	  if (isAsleep) {
+	if (isAsleep==true) {
 		  return false;
 	}
-	if (isMorning) {
-		return isMom; 
+	if (isMorning==true) {
+		if (isMom==true) {
+			return true; 
+		}
+		else {
+			return false;
+		}
 	}
+	
 	else {
 		return true;
 	}
@@ -240,17 +291,26 @@ public class Logic1
 	alarmClock(5, false) --> "7:00"
 	alarmClock(0, false) --> "10:00" */
 	public String alarmClock(int day, boolean vacation) {
-	  if (vacation) {
-		  return (day==0 || day ==6) ? "off" : "10:00";
+	  if (vacation==true) {
+		  if(day==0 || day ==6) { 
+			  return "off";
+		  }
+		  else {
+			  return "10:00";
+		  }
 	  }
+	else if (day==0 || day==6) {
+		return "10:00";
+	}
 	else {
-		return (day==0 || day==6) ? "10:00" : "7:00";
+		return "7:00";
+	}
 	}
 		
-	}
+	
 
 
-	/*We are having a party with amounts of tea and candy. 
+	/*We are having a party with amounts of tea and candy.                                                             HERE 
 	Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great. 
 	A party is good (1) if both tea and candy are at least 5. 
 	However, if either tea or candy is at least double the amount of the other one, the party is great (2). 
