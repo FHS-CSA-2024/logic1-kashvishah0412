@@ -310,7 +310,7 @@ public class Logic1
 	
 
 
-	/*We are having a party with amounts of tea and candy.                                                             HERE 
+	/*We are having a party with amounts of tea and candy.                                                              
 	Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great. 
 	A party is good (1) if both tea and candy are at least 5. 
 	However, if either tea or candy is at least double the amount of the other one, the party is great (2). 
@@ -346,7 +346,7 @@ public class Logic1
 	redTicket(2, 2, 1) --> 0
 	redTicket(0, 0, 0) --> 5 */
 	public int redTicket(int a, int b, int c) {
-	  if ( a == 2 && b ==2 && c==2) {
+	  if ( a==2 && b==2 && c==2) {
 		  return 10;
 	  }
 	if (a==b && b==c){
@@ -395,8 +395,20 @@ public class Logic1
 	squirrelPlay(95, false) --> false
 	squirrelPlay(95, true) --> true	*/
 	public boolean squirrelPlay(int temp, boolean isSummer) {
-  		int upperLimit = isSummer ? 100 : 90;
-		return temp>=60 && temp<=upperLimit;
+		if (summer==true) {
+			if (temp>=60 && temp<=100){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else if(temp>=60 && temp<=90) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 
@@ -413,16 +425,28 @@ public class Logic1
 	caughtSpeeding(65, false) --> 1
 	caughtSpeeding(65, true) --> 0	*/
 	public int caughtSpeeding(int speed, boolean isBirthday) {
-	  int adjustedSpeed = isBirthday ? speed -5 : speed;
-	if(adjustedSpeed <= 60) {
-		return 0;
-	}
-	if(adjustedSpeed <=80) {
-		return 1;
-	}
-	else {
-		return 2;
-	}
+		if (isBirthday==true) {
+			if (speed<=65) {
+				caughtSpeeding = 0;
+			}
+			else if (speed>=66 && speed<=85) {
+				caughtSpeeding = 1;
+			}
+			else {
+				caughtSpeeding = 2;
+			}
+		}
+		else {
+			if (speed<=60) {
+				caughtSpeeding = 0;
+			}
+			else if (speed>=61 && speed<=80) {
+				caughtSpeeding = 1;
+			}
+			else {
+				caughtSpeeding = 2;
+			}
+		}
 	}
 
 
@@ -440,13 +464,13 @@ public class Logic1
 	dateFashion(5, 5) --> 1	*/
 	public int dateFashion(int you, int date) {
 	  if(you <=2 || date<=2) {
-		  return 0;
+		  dateFashion = 0;
 	  }
-	if(you>=9 || date>=8) {
-		return 2;
+	else if((you>=8 && date>=8) || (you>=8 || date>=8)) {
+		dateFashion = 2;
 	}
 	else {
-		return 1;
+		dateFashion = 1;
 	}
 	}
 	
@@ -465,10 +489,10 @@ public class Logic1
   		if (n%3 == 0 && n%5 == 0) {
       			  return "FizzBuzz!";
    	 	}
-   	 	if (n%3 == 0) {
+   	 	else if (n%3 == 0) {
        			 return "Fizz!";
   	  	}
- 	  	 if (n%5 == 0) {
+ 	  	else if (n%5 == 0) {
        			 return "Buzz!";
     		}
    		else{
@@ -486,7 +510,23 @@ public class Logic1
 	sodaParty(50, false) --> true
 	sodaParty(70, true) --> true */
 	public boolean sodaParty(int sodas, boolean isWeekend) {
-  		 return (isWeekend && sodas >= 40) || (!isWeekend && sodas >= 40 && sodas <= 60);
+		if (isWeekend==true) {
+			if(sodas>=40){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			if(sodas>=40 && sodas<=60) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+  		
 	}
 
 }
