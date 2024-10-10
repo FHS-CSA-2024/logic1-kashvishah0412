@@ -244,7 +244,7 @@ public class Logic1
 	lastDigit(23, 19, 12) --> false
 	lastDigit(23, 19, 3) --> true */
 	public boolean lastDigit(int a, int b, int c) {
-	  if ((a%10==b%10) || (b%10==c%10) || (a%10==c&%10)) {
+	  if ((a%10==b%10) || (b%10==c%10) || (a%10==c%10)) {
 		  return true;
 	  }
 	else {
